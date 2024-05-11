@@ -3,11 +3,13 @@
 
 <form method="post">
     @for(int i = 0; i < Model.Strings.Count; i++) {
+        var j = i;
+
         @*Inputs of this type do experience the bugged behavior*@
-        <div><input asp-for="Strings[i]" />@Model.Strings[i]</div>
+        @* <div><input asp-for="Strings[j]" />@Model.Strings[j]</div> *@
 
         @*Inputs of this type do not exhibit the bugged behavior*@
-        @* <div><input asp-for="Strings[i]" value="@Model.Strings[i]" /></div> *@
+        @* <div><input asp-for="Strings[j]" value="@Model.Strings[j]" /></div> *@
     }
 
     <div><input type="submit" value="Remove Second" asp-page-handler="RemoveSecond" /></div>
